@@ -1,8 +1,8 @@
-Utility = Module.new
+require_relative 'utility/version'
 
-Dir[File.dirname(__FILE__) + '/utility/*.rb'].each {|file| require file }
+Dir[File.expand_path('./utility/*.rb', File.dirname(__FILE__))].each {|file| require file }
 
-Utility.module_eval do
+module Utility
   extend Base64
   extend Digest
   extend HMAC
