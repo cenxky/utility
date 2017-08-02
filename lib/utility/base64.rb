@@ -1,4 +1,4 @@
-module Utility::Atob
+module Utility::Base64
 
   # Base64 convert in ruby way
   # Usually, we use Base64 module to handle everything of base64 with `require 'base64'`

@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Cenxky"]
   spec.email         = ["cenxky@gmail.com"]
 
-  spec.summary       = %q{The useful utilities which made in ruby ways.}
-  spec.description   = %q{The useful utilities which made in ruby ways.}
+  spec.summary       = %q{A number of ruby useful utilities.}
+  spec.description   = %q{A number of ruby useful utilities.}
   spec.homepage      = "https://github.com/cenxky/utility"
   spec.license       = "MIT"
 
@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "macaddr", "~> 1.0"
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
