@@ -59,19 +59,19 @@ Utility.parse_query "param1=value1&param2=value2&param3=value3"
 #### computer info ####
 ```ruby
 # get hostname
-Utility.get_hostname #=> "Charles"
+Utility.get_hostname  #=> "Charles"
 
 # get ip address
-Utility.get_ip       #=> "192.168.12.26"
+Utility.get_ip        #=> "192.168.12.26"
 
 #get mac address
-Utility.get_mac      #=> "c8:60:00:10:ec:ee"
+Utility.get_mac       #=> "c8:60:00:10:ec:ee"
 
 #get os
-Utility.get_os       #=> "linux"
+Utility.get_os        #=> "linux"
 
 #get os arch
-Utility.get_arch     #=> 64
+Utility.get_arch      #=> 64
 ```
 
 ### License ###
