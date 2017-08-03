@@ -40,37 +40,61 @@ Utility.sha384 "ruby"  #=> "635365ef93ebf2c7a4e40b0b497da727ab8c2914eb9f052e6be4
 Utility.sha512 "ruby"  #=> "423408d7723a3d80baefa804bd50b61a89667efec1713386a7b8efe28e5d13968307a908778cad210d7aa2dfe7db9a2aa86895f9fc1eeefcc99814310b207a6b"
 ```
 
-#### hmc ####
+#### hmac ####
 ```ruby
 Utility.hmac "sha1", "key", "the data"    #=> "ac5b94c09a6033e3aca1a02116ebf48722b155e0"
 Utility.hmac "sha256", "key", "the data"  #=> "00644ab9e7ce1b772c5fcd9b460b1a4fa78de4a55c162590ac506f2f76d62a40"
 ```
 
-#### params parse ####
+#### url/html ####
 ```ruby
-# full url
+# params parse
 Utility.parse_query "http://example.com/?param1=value1&param2=value2&param3=value3"
 #=> {"param1"=>["value1"], "param2"=>["value2"], "param3"=>["value3"]}
-
-# only query params
 Utility.parse_query "param1=value1&param2=value2&param3=value3"
 #=> {"param1"=>["value1"], "param2"=>["value2"], "param3"=>["value3"]}
+
+# url escape
+Utility.url_escape "http://example.com/search?q=#ruby&from=深圳"
+#=> "http://example.com/search?q=%23ruby&from=%E6%B7%B1%E5%9C%B3"
+Utility.url_escape "http://example.com/search?q=#ruby&from=深圳", :all
+#=> "http%3A%2F%2Fexample.com%2Fsearch%3Fq%3D%23ruby%26from%3D%E6%B7%B1%E5%9C%B3"
+Utility.url_escape "深圳香港一水之隔"
+#=> "%E6%B7%B1%E5%9C%B3%E9%A6%99%E6%B8%AF%E4%B8%80%E6%B0%B4%E4%B9%8B%E9%9A%94"
+
+# url unescape
+Utility.url_unescape "http://example.com/search?q=%23ruby&from=%E6%B7%B1%E5%9C%B3"
+#=> "http://example.com/search?q=#ruby&from=深圳"
+Utility.url_unescape "http%3A%2F%2Fexample.com%2Fsearch%3Fq%3D%23ruby%26from%3D%E6%B7%B1%E5%9C%B3"
+#=> "http://example.com/search?q=#ruby&from=深圳"
+Utility.url_unescape "%E6%B7%B1%E5%9C%B3%E9%A6%99%E6%B8%AF%E4%B8%80%E6%B0%B4%E4%B9%8B%E9%9A%94"
+#=> "深圳香港一水之隔"
+
+# html escape/unescape
+Utility.html_escape "<p>some text</p>"                     #=> "&lt;p&gt;some&nbsp;text&lt;/p&gt;"
+Utility.html_unescape "&lt;p&gt;some&nbsp;text&lt;/p&gt;"  #=> "<p>some text</p>"
+Utility.html_unescape "&copy;2017"                         #=> "©2017"
+
+# html text
+Utility.html_text("<p>This <span>is</span> <p>plain</p> text</p>")
+#=> "This is plain text"
 ```
+
 #### computer info ####
 ```ruby
-# get hostname
+# hostname
 Utility.get_hostname  #=> "Charles"
 
-# get ip address
+# ip address
 Utility.get_ip        #=> "192.168.12.26"
 
-#get mac address
+# mac address
 Utility.get_mac       #=> "c8:60:00:10:ec:ee"
 
-#get os
+# os
 Utility.get_os        #=> "linux"
 
-#get os arch
+# os arch
 Utility.get_arch      #=> 64
 ```
 
