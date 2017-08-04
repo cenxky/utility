@@ -20,14 +20,14 @@ require "utility"
 #### base64 ####
 ```ruby
 # base64 encode
-Utility.base64encode "ruby"          #=> cnVieQ==
-Utility.base64encode "utility"       #=> dXRpbGl0eQ==
-Utility.base64encode "中文"           #=> 5Lit5paH
+Utility.base64encode "ruby"          #=> "cnVieQ=="
+Utility.base64encode "utility"       #=> "dXRpbGl0eQ=="
+Utility.base64encode "中文"           #=> "5Lit5paH"
 
 # base64 decode
-Utility.base64decode "cnVieQ=="      #=> ruby
-Utility.base64decode "dXRpbGl0eQ=="  #=> utility
-Utility.base64decode "5Lit5paH"      #=> 中文
+Utility.base64decode "cnVieQ=="      #=> "ruby"
+Utility.base64decode "dXRpbGl0eQ=="  #=> "utility"
+Utility.base64decode "5Lit5paH"      #=> "中文"
 ```
 
 #### md5/rmd/sha ####
@@ -59,16 +59,16 @@ Utility.url_escape "http://example.com/search?q=#ruby&from=深圳"
 #=> "http://example.com/search?q=%23ruby&from=%E6%B7%B1%E5%9C%B3"
 Utility.url_escape "http://example.com/search?q=#ruby&from=深圳", :all
 #=> "http%3A%2F%2Fexample.com%2Fsearch%3Fq%3D%23ruby%26from%3D%E6%B7%B1%E5%9C%B3"
-Utility.url_escape "深圳香港一水之隔"
-#=> "%E6%B7%B1%E5%9C%B3%E9%A6%99%E6%B8%AF%E4%B8%80%E6%B0%B4%E4%B9%8B%E9%9A%94"
+Utility.url_escape "深圳"
+#=> "%E6%B7%B1%E5%9C%B3"
 
 # url unescape
 Utility.url_unescape "http://example.com/search?q=%23ruby&from=%E6%B7%B1%E5%9C%B3"
 #=> "http://example.com/search?q=#ruby&from=深圳"
 Utility.url_unescape "http%3A%2F%2Fexample.com%2Fsearch%3Fq%3D%23ruby%26from%3D%E6%B7%B1%E5%9C%B3"
 #=> "http://example.com/search?q=#ruby&from=深圳"
-Utility.url_unescape "%E6%B7%B1%E5%9C%B3%E9%A6%99%E6%B8%AF%E4%B8%80%E6%B0%B4%E4%B9%8B%E9%9A%94"
-#=> "深圳香港一水之隔"
+Utility.url_unescape "%E6%B7%B1%E5%9C%B3"
+#=> "深圳"
 
 # html escape/unescape
 Utility.html_escape "<p>some text</p>"                     #=> "&lt;p&gt;some&nbsp;text&lt;/p&gt;"
@@ -82,20 +82,21 @@ Utility.html_text("<p>This <span>is</span> <p>plain</p> text</p>")
 
 #### computer info ####
 ```ruby
-# hostname
+# hostname/ip/mac/os/arch
 Utility.get_hostname  #=> "Charles"
-
-# ip address
 Utility.get_ip        #=> "192.168.12.26"
-
-# mac address
 Utility.get_mac       #=> "c8:60:00:10:ec:ee"
-
-# os
 Utility.get_os        #=> "linux"
-
-# os arch
 Utility.get_arch      #=> 64
+```
+
+#### try ####
+```ruby
+# use 'try' as same as in rails
+self.try :class                        #=> Object
+self.try(:conf).try :ap_name           #=> "irb"
+Utility.try{ Date.current.year.size }  #=> nil
+#=> nil
 ```
 
 ### License ###

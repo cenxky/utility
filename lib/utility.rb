@@ -8,4 +8,5 @@ module Utility
   extend HMAC
   extend URL
   extend Computer
+  extend Try
 end
