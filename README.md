@@ -99,5 +99,11 @@ Utility.try{ Date.current.year.size }  #=> nil
 #=> nil
 ```
 
+#### others ####
+```ruby
+# mobile caller location query (China)
+Utility.mobile_caller_location 13812345678  #=> "江苏连云港 中国移动 GSM"
+```
+
 ### License ###
 Released under the [MIT](http://opensource.org/licenses/MIT) license. See LICENSE file for details.

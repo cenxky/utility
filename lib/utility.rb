@@ -9,4 +9,5 @@ module Utility
   extend URL
   extend Computer
   extend Try
+  extend Callerloc
 end

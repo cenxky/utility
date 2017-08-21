@@ -35,4 +35,3 @@ module Utility::Try
   end
 
 end
-
