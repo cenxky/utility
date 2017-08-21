@@ -7,8 +7,7 @@ module Utility::Computer
     ip = Socket.ip_address_list.detect do |intf|
       intf.ipv4? &&
       !intf.ipv4_loopback? &&
-      !intf.ipv4_multicast? &&
-      !intf.ipv4_private?
+      !intf.ipv4_multicast?
     end
     ip.nil?? "IP address not found" : ip.ip_address
   end
