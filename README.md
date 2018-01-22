@@ -101,8 +101,8 @@ Utility.try{ Date.current.year.size }  #=> nil
 
 #### others ####
 ```ruby
-# mobile caller location query (China)
-Utility.mobile_caller_location 13812345678  #=> "江苏连云港 中国移动 GSM"
+# mobile number location query (China)
+Utility.mobile_location 13812345678  #=> "江苏连云港 中国移动"
 ```
 
 ### License ###
